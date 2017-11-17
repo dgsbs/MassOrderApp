@@ -1,6 +1,5 @@
 using System;
 using System.Configuration;
-
 using Microsoft.Bot.Builder.CognitiveServices.QnAMaker;
 
 namespace Microsoft.Bot.Sample.QnABot
