@@ -9,11 +9,17 @@ namespace MO.WebApi.Controllers
     [Route("api/[controller]")]
     public class OrdersController : Controller
     {
+        private readonly MODbContext dbContext;
+
+        public OrdersController(MODbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Order> GetOrders()
         {
-            return new string[] { "value1", "value2" };
+            return this.dbContext.Orders.ToList();
         }
 
         // GET api/values/5
@@ -23,10 +29,16 @@ namespace MO.WebApi.Controllers
             return "value";
         }
 
-        // POST api/values
+        // POST api/orders
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post(string email, string clientName, string itemName, int itemPrice)
         {
+            Order order = new Order();
+            order.Client = new Client() {Email = email, NameSurname = clientName};
+            order.Item = new Item() {Name = itemName, Price = itemPrice};
+
+            this.dbContext.Orders.Add(order);
+            this.dbContext.SaveChanges();
         }
 
         // PUT api/values/5
