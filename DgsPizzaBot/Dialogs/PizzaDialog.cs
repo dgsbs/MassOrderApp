@@ -102,19 +102,23 @@ namespace Microsoft.Bot.Sample.SimpleSandwichBot
                 //
                 .Field(nameof(Size), validate: async (state, value) =>
                 {
-                    var result = new ValidateResult { IsValid = true, Value = value };
-
-                    var size = (SimpleSandwichBot.Size)value;
-                    if (size == SimpleSandwichBot.Size.Small)
+                    if (state.MealType == MealTypes.Pizza)
                     {
-                        result.Feedback = "You should eat something bigger!";
-                    }
-                    else if (size == SimpleSandwichBot.Size.Large && state.MealType.Value == MealTypes.Pizza)
-                    {
-                        result.Feedback = "Are you sure you will eat large pizza? I don't think so!";
-                    }
+                        var result = new ValidateResult {IsValid = true, Value = value};
 
-                    return result;
+                        var size = (SimpleSandwichBot.Size) value;
+                        if (size == SimpleSandwichBot.Size.Small)
+                        {
+                            result.Feedback = "You should eat something bigger!";
+                        }
+                        else if (size == SimpleSandwichBot.Size.Large && state.MealType.Value == MealTypes.Pizza)
+                        {
+                            result.Feedback = "Are you sure you will eat large pizza? I don't think so!";
+                        }
+                        return result;
+                    }
+                    
+                    return new ValidateResult();
                 })
 
                 //
