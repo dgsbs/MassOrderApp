@@ -26,13 +26,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WebUI</a>
-            </div>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Mass Order app</a>
+            </div>          
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Admin" asp-action="Create">Otwórz okno zamówień</a></li>
+                    <li><a asp-area="" asp-controller="Admin" asp-action="Index">Zamknij okno zamówień</a></li>
+                    <li><a asp-area="" asp-controller="User" asp-action="Index">Lista zamówień</a></li>
+                    @*ToDo: To zostanie dodane przy następnej okazji*@
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="About">O stronie</a></li>*@
+                    @*<li><a asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a></li>*@                 
                 </ul>
             </div>
         </div>
@@ -41,7 +44,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2017 - WebUI</p>
+            <p>&copy; 2017 - Mass Order app</p>
         </footer>
     </div>
 

@@ -7,8 +7,11 @@ using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
 using System.Net.Http;
 using System.Diagnostics;
+<<<<<<< HEAD
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Sample.QnABot.Microsoft.Bot.Sample.SimpleSandwichBot;
+=======
+>>>>>>> origin
 
 namespace Microsoft.Bot.Sample.QnABot
 {
@@ -26,8 +29,12 @@ namespace Microsoft.Bot.Sample.QnABot
             // check if activity is of type message
             if (activity.GetActivityType() == ActivityTypes.Message)
             {
+<<<<<<< HEAD
                 await Conversation.SendAsync(activity, MakePizzaOrder);
                 //await Conversation.SendAsync(activity, () => new PizzaDialog());
+=======
+                await Conversation.SendAsync(activity, () => new BasicQnAMakerDialog());
+>>>>>>> origin
             }
             else
             {
@@ -36,12 +43,15 @@ namespace Microsoft.Bot.Sample.QnABot
             return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
         }
 
+<<<<<<< HEAD
         internal static IDialog<PizzaOrder> MakePizzaOrder()
         {
             return Chain.From(() => FormDialog.FromForm(PizzaOrder.BuildForm));
         }
 
 
+=======
+>>>>>>> origin
         private Activity HandleSystemMessage(Activity message)
         {
             if (message.Type == ActivityTypes.DeleteUserData)

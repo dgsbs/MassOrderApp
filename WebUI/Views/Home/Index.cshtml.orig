@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 ﻿@model HomeViewModel
 @{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>@Model.UserIdentityName</h1>
+=======
+﻿@{
     ViewData["Title"] = "MO App";
 }
 
@@ -93,3 +100,4 @@
         </ul>
     </div>
 </div>*@
+>>>>>>> master

@@ -7,8 +7,6 @@ using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
 using System.Net.Http;
 using System.Diagnostics;
-using Microsoft.Bot.Builder.FormFlow;
-using Microsoft.Bot.Sample.QnABot.Microsoft.Bot.Sample.SimpleSandwichBot;
 
 namespace Microsoft.Bot.Sample.QnABot
 {
@@ -26,8 +24,7 @@ namespace Microsoft.Bot.Sample.QnABot
             // check if activity is of type message
             if (activity.GetActivityType() == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, MakePizzaOrder);
-                //await Conversation.SendAsync(activity, () => new PizzaDialog());
+                await Conversation.SendAsync(activity, () => new BasicQnAMakerDialog());
             }
             else
             {
@@ -35,12 +32,6 @@ namespace Microsoft.Bot.Sample.QnABot
             }
             return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
         }
-
-        internal static IDialog<PizzaOrder> MakePizzaOrder()
-        {
-            return Chain.From(() => FormDialog.FromForm(PizzaOrder.BuildForm));
-        }
-
 
         private Activity HandleSystemMessage(Activity message)
         {
