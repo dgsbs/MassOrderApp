@@ -23,7 +23,7 @@ namespace MO.PerugiaParserConsole
             {
                 Product p = new Product();
                 p.Group = "Makaron";
-                p.Name = product.QuerySelector("p").InnerText;
+                p.Name = product.QuerySelector("h2").InnerText;
 
                 if (product.QuerySelector("h3") != null)
                 {
@@ -36,7 +36,7 @@ namespace MO.PerugiaParserConsole
             {
                 Product p = new Product();
                 p.Group = "pizza";
-                p.Name = product.QuerySelector("p").InnerText;
+                p.Name = product.QuerySelector("h2").InnerText;
 
                 if (product.QuerySelector("h3") != null)
                 {
@@ -49,7 +49,7 @@ namespace MO.PerugiaParserConsole
             {
                 Product p = new Product();
                 p.Group = "sałatka";
-                p.Name = product.QuerySelector("p").InnerText;
+                p.Name = product.QuerySelector("h2").InnerText;
 
                 if (product.QuerySelector("h3") != null)
                 {
