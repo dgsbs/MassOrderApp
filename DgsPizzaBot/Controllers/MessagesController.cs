@@ -24,7 +24,6 @@ namespace Microsoft.Bot.Sample.QnABot
             if (activity.GetActivityType() == ActivityTypes.Message)
             {
                 await Conversation.SendAsync(activity, MakePizzaOrder);
-                //await Conversation.SendAsync(activity, () => new PizzaDialog());
             }
             else
             {
